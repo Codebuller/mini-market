@@ -10,11 +10,12 @@ async function bootstrap() {
     new FastifyAdapter({ logger: true })
   );
   const config = new DocumentBuilder()
-    .setTitle('Redis')
-    .setDescription('Redis')
-    .setVersion('1.0')
+  .addBearerAuth()
+  .setTitle('redis_api')
+  .setDescription('Documenattion for redis_api')
+  .setVersion('0.1')
+  .build()
 
-    .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
   await app.listen(3000, '0.0.0.0');
