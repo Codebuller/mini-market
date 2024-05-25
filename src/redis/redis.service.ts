@@ -6,7 +6,9 @@ import { RedisClientType, createClient } from 'redis';
 export class RedisService implements OnModuleInit {
     redisClient:RedisClientType|undefined
     async onModuleInit() {
-        this.redisClient = await createClient()
+        this.redisClient = await createClient({
+            url: 'redis://0.0.0.0:6378'
+        })
         .on('error', err => console.log('Redis Client Error', err))
         .connect() as RedisClientType;
     }

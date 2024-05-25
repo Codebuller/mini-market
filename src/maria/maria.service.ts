@@ -1,5 +1,5 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-const mariadb = require('mysql2');
+// const mariadb = require('mysql2');
 import  * as mysql from 'mysql2/promise.js';
 import { ProductCreationAttrs } from './interfaces';
 
@@ -7,11 +7,30 @@ import { ProductCreationAttrs } from './interfaces';
 export class MariaService implements OnModuleInit {
     mariaClient:mysql.Connection|undefined
     async onModuleInit(){
-        this.mariaClient = await mysql.createConnection({host: process.env.MARYADB_HOST, 
-            password: process.env.MARIA_DB_PASSWORD, 
-            user: process.env.MARIA_DB_USERNAME, 
-            connectionLimit: 5, 
-            database: process.env.MARIA_DB_DATABASE})
+    //     console.log('this new  host: 0.0.0.0')
+ 	// console.log({
+    //             password: process.env.MARIA_DB_PASSWORD, 
+    //             user: process.env.MARIA_DB_USERNAME, 
+    //             port: parseInt(process.env.MARIA_DB_PORT),
+    //             connectionLimit: 1000, 
+    //             database: process.env.MARIA_DB_DATABASE,
+    //             host: '0.0.0.0'
+    //         }
+	// 	   );       
+    //         this.mariaClient = await mysql.createConnection(
+    //             {
+                
+                
+    //             password: process.env.MARIA_DB_PASSWORD, 
+    //             user: process.env.MARIA_DB_USERNAME, 
+    //             port: parseInt(process.env.MARIA_DB_PORT),
+    //             connectionLimit: 1000, 
+    //             database: process.env.MARIA_DB_DATABASE,
+    //             host: '0.0.0.0'
+    //         }
+            // )
+
+
         
     }
     async getAllProduct(){
